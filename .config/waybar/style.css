@@ -1,0 +1,24 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: jetbrainsmono;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: #ffffff;
+}
+
+#clock,
+#window,
+#tray
+{
+    
+    padding-top: 10px;
+    
+}
+
+#window {
+    padding-left: 20px;
+}
