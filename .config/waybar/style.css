@@ -1,24 +1,165 @@
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
     font-family: jetbrainsmono;
-    font-weight: bold;
     font-size: 13px;
 }
 
 window#waybar {
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+}
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+#workspaces button label {
+    font-size: 20px;
+  }
+#workspaces button {
+    padding-right: 16px;
+    padding-left: 10px;
     background-color: transparent;
     color: #ffffff;
 }
 
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.active {
+    background-color: #3d3d3d;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#mode {
+    background-color: #3d3d3d;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
 #clock,
-#window,
-#tray
-{
-    
-    padding-top: 10px;
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd {
+    padding: 0 10px;
+    color: #ffffff;
+}
+#tray {
+    padding-top: 2px;
+    padding-right: 2px;
+
+    color: #ffffff;
     
 }
 
-#window {
-    padding-left: 20px;
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#custom-clock {
+    font-size: 15px;
+    font-weight: bold;
+}
+#network,
+#network.disconnected,
+#battery {
+    color: #ffffff;
+    padding: 0 15 0 0px;
+    background-color: transparent;
+    font-size: 15px;
+}
+#network.ethernet {
+    font-size: 18px;
+}
+
+@keyframes battplugged {
+    to {
+        background-color: transparent;
+        color: #000000;
+    }
+}
+
+#battery.charging, #battery.plugged {
+    color: #26A65B;
+    background-color: transparent;
+    animation-name: battplugged;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+}
+
+@keyframes battcrit {
+    to {
+        background-color: transparent;
+        color: #000000;
+    }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    background-color: transparent;
+    color: #f53c3c;
+    animation-name: battcrit;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#power-profiles-daemon {
+    padding-right: 15px;
+}
+
+#power-profiles-daemon.performance {
+    background-color: #f53c3c;
+    color: #ffffff;
+}
+
+#power-profiles-daemon.balanced {
+    background-color: #2980b9;
+    color: #ffffff;
+}
+
+#power-profiles-daemon.power-saver {
+    background-color: #2ecc71;
+    color: #000000;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
 }

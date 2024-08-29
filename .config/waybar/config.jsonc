@@ -5,7 +5,7 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-       "hyprland/window"
+       "hyprland/workspaces"
     ],
     "modules-center": [
       "clock"
@@ -14,17 +14,24 @@
       "tray"
     ],
     
-    "hyprland/window": {
-        "format": "{}",
-        "rewrite": {
-            "(.*) — Mozilla Firefox":"$1",
-            "(.*) - Code - OSS":"$1",
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "󰢹",
+            "4": "",
+            "5": ""
         },
+        "persistent-workspaces": {
+            "*": 5
+        }
     },
 
     "tray": {
         // "icon-size": 21,
-        "spacing": 10
+        "spacing": 10,
+        "icon-size": 20
     },
 
     "clock": {

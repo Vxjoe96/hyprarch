@@ -1,7 +1,0 @@
-mode = drun
-allow_images=true
-prompt=Search....
-columns=2
-hide_scroll=true
-width=20%
-height=20%

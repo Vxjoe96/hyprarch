@@ -1,0 +1,43 @@
+[manager]
+cwd = { fg = "white" }
+border_style  = { fg = "darkgray" }
+[status]
+mode_normal = { bg = "#242424", bold = true }
+
+
+[filetype]
+rules = [
+	# Images
+	{ mime = "image/*", fg = "yellow" },
+
+	# Media
+	{ mime = "{audio,video}/*", fg = "magenta" },
+
+	# Archives
+	{ mime = "application/{,g}zip", fg = "red" },
+	{ mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", fg = "red" },
+
+	# Documents
+	{ mime = "application/{pdf,doc,rtf,vnd.*}", fg = "cyan" },
+
+	# Empty files
+	# { mime = "inode/x-empty", fg = "red" },
+
+	# Special files
+	{ name = "*", is = "orphan", bg = "red" },
+	{ name = "*", is = "exec"  , fg = "green" },
+
+	# Dummy files
+	{ name = "*", is = "dummy", bg = "red" },
+	{ name = "*/", is = "dummy", bg = "red" },
+
+	# Fallback
+	# { name = "*", fg = "darkgray" },
+	{ name = "*/", fg = "darkgray" }
+]
+
+[input]
+border   = { fg = "darkgray" }
+title    = {}
+value    = {}
+selected = { reversed = true }
