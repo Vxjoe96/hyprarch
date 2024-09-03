@@ -59,3 +59,7 @@ fi
 echo "installing rest of packages"
 yay -S --noconfirm "${PKGS[@]}" || { echo "Failed to install packages"; exit 1; }
 
+echo "Copying Config files over" 
+cp -rf .config ~/
+cp 
+
